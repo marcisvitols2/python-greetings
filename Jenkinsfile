@@ -78,7 +78,7 @@ def deploy(String environment){
     sh "docker pull marcisvitols/python-greetings-app:latest"
     sh "docker-compose stop greetings-app-${environment}"
     sh "docker-compose rm greetings-app-${environment}"
-    sh "docker-compose up greetings-app-${environment}"
+    sh "docker-compose up -d greetings-app-${environment}"
 
 }
 
