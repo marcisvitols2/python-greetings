@@ -82,7 +82,7 @@ def deploy(String environment){
 
 }
 
-def test(String test_set, String environment){
+def test(String environment){
     echo "Testing on ${environment} has started.."
     //git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
     //sh "ls"
