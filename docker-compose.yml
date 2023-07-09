@@ -17,4 +17,4 @@ services:
     image: marcisvitols/python-greetings-app:latest
     container_name: greetings-app-prod
     ports:
-      - 7004:3000
+      - 7003:3000

@@ -35,7 +35,7 @@ pipeline {
         stage('Tests on stg environment') {
             steps {
                 script{
-                    test("staging")
+                    test("stg")
                 }
             }
         }
