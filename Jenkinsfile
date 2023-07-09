@@ -35,7 +35,7 @@ pipeline {
         stage('Tests on stg environment') {
             steps {
                 script{
-                    test("stg")
+                    test("staging")
                 }
             }
         }
@@ -69,12 +69,7 @@ def build(){
 
 def deploy(String environment){
     echo "Deployment python microserivce to ${environment} has started.."
-    //git branch: 'main', url: 'https://github.com/mtararujs/sample-book-app.git'
-    //sh "npm install"
-    //sh "pm2 delete \"books-${environment}\""
-    //sh "pm2 start -n \"books-${environment}\" index.js -- ${port}"
-
-    echo "Deployment to ${environment} has started.."
+   
     sh "docker pull marcisvitols/python-greetings-app:latest"
     sh "docker-compose stop greetings-app-${environment}"
     sh "docker-compose rm greetings-app-${environment}"
@@ -84,11 +79,7 @@ def deploy(String environment){
 
 def test(String environment){
     echo "Testing on ${environment} has started.."
-    //git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
-    //sh "ls"
-    //sh "npm install"
-    //sh "npm run ${test_set} ${test_set}_${environment}"
-
+    
     sh "docker pull marcisvitols/api-tests:latest"
     sh "docker run --network=host --rm marcisvitols/api-tests:latest run greetings greetings_${environment}"
 
